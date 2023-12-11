@@ -16,7 +16,7 @@ def get_instagram_followers_count(username):
 
 if __name__ == "__main__":
     # Replace 'target_username' with the Instagram username you want to get followers count for
-    target_username = 'fs_beatzz'
+    target_username = 'target_username'
 
     followers_count = get_instagram_followers_count(target_username)
 
