@@ -1,48 +1,50 @@
-# Instagram Followers Count Extractor
+# Instagram Follower Scraper
 
-## Overview
+## Description
+This Python script extracts Instagram follower counts from a list of URLs provided in a CSV file.
 
-This Python script uses the `instaloader` library to extract the follower count of a given Instagram user. It's a straightforward tool that helps you retrieve the number of followers for a specified Instagram username.
+## Requirements
+- Python 3.x
+- Pandas
+- Instaloader
 
-## Prerequisites
+## Installation
+1. Clone the repository:
+   ```
+   git clone https://github.com/shafancp/instagram.git
+   cd instagram
+   ```
 
-1. [Python](https://www.python.org/downloads/) installed on your machine.
-2. Install required dependencies using the following command:
-   ```bash
-   pip install instaloader
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
    ```
 
 ## Usage
+1. Prepare your CSV file (`urls.csv`) with a list of Instagram profile URLs.
+   - Each URL should be in a separate row under the column header 'URL'.
 
-1. Open the `instagram_followers.py` file.
-2. Replace `'target_username'` with the Instagram username you want to get the followers count for.
-3. Run the script using the following command:
-   ```bash
-   python instagram_followers.py
+2. Edit `login()` function in the script with your Instagram credentials:
+   ```python
+   loader.login("your_instagram_username", "your_instagram_password")
    ```
 
-## Example
+3. Run the script:
+   ```
+   python instafollowerscraper.py
+   ```
 
-```python
-# Replace 'target_username' with the Instagram username you want to get followers count for
-target_username = 'example_user'
+4. Output:
+   - The script will extract followers count for each profile URL and save the results in `result.csv`.
 
-followers_count = get_instagram_followers_count(target_username)
-
-if followers_count is not None:
-    print(f"The Instagram user '{target_username}' has {followers_count} followers.")
+## Example CSV Format (urls.csv)
+```
+URL
+https://www.instagram.com/profile1/
+https://www.instagram.com/profile2/
+https://www.instagram.com/profile3/
 ```
 
-## Error Handling
-
-- If the specified profile does not exist, a `ProfileNotExistsException` will be caught and an error message will be displayed.
-- Any other exceptions will be caught as `InstaloaderException` with a corresponding error message.
-
 ## Notes
-
-- This script does not require Instagram API access but uses the `instaloader` library to scrape public profile information.
-- Use responsibly and be aware of Instagram's terms of service.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+- Ensure your Instagram account has appropriate permissions for scraping.
+- Adjust the `time.sleep()` interval in the script to comply with Instagram's rate limits.
